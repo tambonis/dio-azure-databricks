@@ -137,3 +137,75 @@ Este pipeline cobre a **camada Bronze**, onde os dados são extraídos e armazen
 1. No topo da tela, clique em **Trigger > Trigger Now**.
 2. Monitore em **Monitor** para ver status e logs.
 3. Acesse o Blob Storage e verifique se o arquivo foi criado corretamente no container `bronze`.
+
+# Explorando databricks
+
+## 🚀 **1. Acessar a plataforma gratuita do Databricks**
+
+1. Vá para: [https://community.cloud.databricks.com/](https://community.cloud.databricks.com/)
+2. Clique em **"Sign in"** ou **"Sign up"**:
+
+   * Caso não tenha conta, clique em **"Sign up"**, informe seus dados (email), e ative a conta pelo link enviado.
+
+3. Após login, você verá o **Databricks Workspace** com menus laterais como **Workspace**, **Clusters**, **Jobs**, etc.
+
+---
+
+## ⚙️ **2. Criar um cluster (modo single-node)**
+
+> Um cluster é necessário para executar notebooks e processar dados.
+
+1. No menu lateral esquerdo, clique em **Compute** (ou “Clusters”).
+2. Clique em **Create Cluster**.
+3. Preencha os seguintes campos:
+
+   * **Cluster name:** `single_node_cluster`
+   * **Cluster mode:** Selecione **Single Node**
+   * **Databricks Runtime Version:** use a versão mais recente (ex: `11.3 LTS (Scala 2.12, Spark 3.3.0)`).
+   * **Node Type:** mantenha o padrão (ex: `Standard_DS3_v2`)
+   * **Worker type:** não aplicável, pois é single node.
+4. Clique em **Create Cluster**.
+5. Aguarde o status mudar para **Running** (leva \~2 minutos).
+
+## 📒 **3. Criar um notebook e conectar ao cluster**
+
+1. No menu lateral, vá em **Workspace > Users > [seu\_email@databricks.com](mailto:seu_email@databricks.com)**.
+2. Clique em **Create > Notebook**.
+3. Preencha:
+
+   * **Name:** `exemplo_pandas_csv`
+   * **Default Language:** Python
+   * **Cluster:** selecione `single_node_cluster`
+4. Clique em **Create**.
+
+## 📥 **4. Ler arquivo CSV de URL externa com Pandas**
+
+### 📎 Fonte dos dados:
+
+[https://raw.githubusercontent.com/MicrosoftLearning/mslearn-databricks/main/data/products.csv](https://raw.githubusercontent.com/MicrosoftLearning/mslearn-databricks/main/data/products.csv)
+
+### ✅ Código para leitura e agregação:
+
+```python
+# 1. Importar bibliotecas
+import pandas as pd
+
+# 2. Ler o CSV da URL
+url = "https://raw.githubusercontent.com/MicrosoftLearning/mslearn-databricks/main/data/products.csv"
+df = pd.read_csv(url)
+
+# 3. Visualizar as 5 primeiras linhas
+display(df.head())
+
+# 4. Agregar por ProductName e Category
+agg_df = df.groupby(['ProductName', 'Category']).size().reset_index(name='Total')
+
+# 5. Exibir resultado
+display(agg_df)
+```
+
+## 🧪 Resultado
+
+Você verá uma tabela com a contagem de produtos agrupados por `ProductName` e `Category`.
+
+![image](https://github.com/user-attachments/assets/5672c989-2f0c-4394-bc8f-1ad8c5b2308c)
