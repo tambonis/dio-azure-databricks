@@ -1,6 +1,6 @@
-📘 ## Aprendizados do Projeto Azure Databricks
+📘 # Aprendizados do Projeto Azure Databricks
 
-# Este projeto apresenta uma visão prática do ambiente Azure utilizando uma conta gratuita de estudante. Abaixo estão os principais tópicos abordados:
+## Este projeto apresenta uma visão prática do ambiente Azure utilizando uma conta gratuita de estudante. Abaixo estão os principais tópicos abordados:
 
 🔹 Criação de Assinatura Azure: Uso de conta gratuita para ativar e configurar assinatura de estudante no portal Azure.
 
@@ -30,7 +30,7 @@ Utilização de comandos via terminal;
 
 Scripts de automação para criação e gerenciamento de recursos.
 
-# Passos para teste de cópia de arquivo - 30/05/2025
+# Lab de copiar uma tabela de teste de um SQL Server on-premises self-hosted para o Azure Blob Storage, usando o Azure Data Factory (ADF) por meio de um pipeline, - 30/05/2025
 
 ![image](https://github.com/user-attachments/assets/6ca04a7b-6390-4fdc-8270-03522747d636)
 
