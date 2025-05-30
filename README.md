@@ -1,4 +1,4 @@
-📘 # Aprendizados do Projeto Azure Databricks
+# Aprendizados do Projeto Azure Databricks
 
 ## Este projeto apresenta uma visão prática do ambiente Azure utilizando uma conta gratuita de estudante. Abaixo estão os principais tópicos abordados:
 
