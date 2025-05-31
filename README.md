@@ -209,3 +209,251 @@ display(agg_df)
 Você verá uma tabela com a contagem de produtos agrupados por `ProductName` e `Category`.
 
 ![image](https://github.com/user-attachments/assets/5672c989-2f0c-4394-bc8f-1ad8c5b2308c)
+
+
+# Azure Data Fabric & Azure DevOps
+
+# Azure Data Fabric
+
+## 🧩 **1. O que é o Microsoft Fabric e como utilizá-lo**
+
+O **Microsoft Fabric** é uma plataforma unificada de dados como serviço (Data as a Service - DaaS) da Microsoft que integra **engenharia de dados, ciência de dados, análise em tempo real, Power BI e governança** em uma única interface SaaS. Ele é construído sobre o Power BI e o Azure Synapse, e visa simplificar arquiteturas modernas de dados.
+
+### ✅ **Criação de um workspace**
+
+1. Acesse o portal: [https://app.fabric.microsoft.com/](https://app.fabric.microsoft.com/)
+2. Faça login com uma conta corporativa do Microsoft 365.
+3. Crie ou acesse um **workspace** (área de trabalho).
+4. Dentro do workspace, você pode criar diferentes tipos de itens:
+
+   * **Lakehouse** (para armazenar arquivos Parquet/Delta)
+   * **Data Warehouse** (para modelo relacional)
+   * **Notebook** (para código PySpark)
+   * **Pipeline** (semelhante ao Azure Data Factory)
+   * **Dataflow Gen2** (ETL visual)
+   * **Reports** (com Power BI)
+   * **SQL Query** (para consultas)
+
+### 🔍 **SQL Analytics e Queries**
+
+* Você pode usar a interface de **SQL Query Editor** dentro do **Data Warehouse** ou **Lakehouse**.
+* SQL Queries no Fabric permitem consultas sobre:
+
+  * Arquivos Delta armazenados no Lakehouse.
+  * Tabelas de data warehouse com recursos como indexing e performance tuning automáticos.
+* Também é possível criar **Views, Stored Procedures e Functions** diretamente no editor.
+
+### 📈 **Analytics e Experiência Unificada**
+
+* O Microsoft Fabric combina a experiência de Power BI com Lakehouse e Warehouse:
+
+  * **Real-time Analytics**: com suporte a eventos e dados em tempo real.
+  * **OneLake**: camada de armazenamento unificada para todos os artefatos (parquet, delta, warehouse etc).
+  * **Auto Discovery**: recursos de descoberta automática de dados nos workspaces.
+
+### 🎓 **Learning Center (Centro de Aprendizado)**
+
+* Disponível no menu lateral esquerdo, o **Learning Center** oferece:
+
+  * **Tutoriais guiados** sobre como usar Lakehouse, Notebooks, Pipelines e SQL queries.
+  * **Laboratórios interativos** com datasets reais.
+  * Acesso a **documentação oficial, vídeos e exemplos práticos**.
+
+## 📊 **2. Monitoramento de recursos, custos e uso da calculadora**
+
+O Microsoft Fabric adota um modelo baseado em **Capacidade de Computação (Capacity Units - CUs)**, com controle detalhado de uso e custo.
+
+### 🔎 **Monitoramento de Recursos**
+
+* Acesse via portal do Microsoft Fabric ou Power BI Admin Center:
+
+  * **Usage Metrics**: horas de uso de capacidade, jobs agendados, pipelines, leitura de dados etc.
+  * **Monitor Hub**: permite rastrear a execução de notebooks, pipelines e refresh de datasets.
+
+### 💸 **Monitoramento de Custos**
+
+* O controle de custo pode ser feito com:
+
+  * **Azure Cost Management** (se o Fabric estiver vinculado a uma assinatura Azure).
+  * **Capacity Metrics App**: app oficial que monitora uso da capacidade e projeta o custo.
+  * **Power BI Admin Portal**: mostra utilização por workspace, usuário e tipo de atividade.
+
+### 📐 **Calculadora de Preço**
+
+* Use a calculadora oficial do Azure para estimar custos:
+
+  * [https://azure.microsoft.com/en-us/pricing/calculator/](https://azure.microsoft.com/en-us/pricing/calculator/)
+* Na calculadora:
+
+  1. Selecione “Microsoft Fabric” ou "Power BI Premium Capacity".
+  2. Configure:
+
+     * Tipo de capacidade (F SKU, P SKU etc.)
+     * Número de usuários e frequência de uso.
+     * Necessidade de warehouse, pipelines, notebooks.
+  3. Visualize o custo estimado mensal.
+
+# Azure DevOps
+
+## 🔧 1) Componentes do Azure DevOps
+
+O Azure DevOps é um conjunto de ferramentas integradas para planejar, desenvolver, testar e entregar software com mais agilidade e controle.
+
+### ✅ **Azure Boards**
+
+* Ferramenta de gerenciamento ágil de projetos.
+* Permite organizar **work items**, **user stories**, **bugs**, **sprints** e **backlogs**.
+* Suporta **Kanban**, **Scrum** e personalização de workflows.
+
+### 🔄 **Azure Pipelines**
+
+* Sistema de CI/CD para compilar, testar e implantar aplicações.
+* Suporta múltiplas linguagens (Python, .NET, Node.js, Java).
+* Pode executar em agentes hospedados (Microsoft) ou self-hosted.
+* Suporte a pipelines clássicos e YAML-as-code.
+* Integração com Azure, Kubernetes, GitHub e outros.
+
+### 🔁 **Azure Repos**
+
+* Sistema de versionamento baseado em Git.
+* Repositórios privados ilimitados.
+* Suporte a **branches**, **pull requests**, **code reviews** e **merge policies**.
+
+### 🔒 **Security & Policies**
+
+* Gerenciamento granular de permissões por:
+
+  * Organização
+  * Projeto
+  * Pipeline
+  * Branch
+* **Branch Policies**:
+
+  * Pull Request obrigatória
+  * Validação de build
+  * Aprovação de revisores
+  * Controle de quem pode escrever no `main`
+
+### 📋 **Test Plans**
+
+* Ferramenta para gerenciamento de testes manuais e automatizados.
+* Suporta **casos de teste, testes exploratórios e execução em múltiplos ambientes**.
+* Integra-se com pipelines e dashboards para rastreabilidade.
+
+### 📦 **Artifacts**
+
+* Sistema de gerenciamento de pacotes (NuGet, npm, Python, Maven).
+* Permite armazenar e compartilhar bibliotecas internas.
+* Ideal para projetos com múltiplos serviços ou times.
+
+## 🧩 2) Extensões importantes
+
+### 📓 **Jupyter Notebooks**
+
+* Extensão que permite rodar, versionar e revisar **notebooks (.ipynb)** diretamente no Azure DevOps.
+* Útil para projetos de ciência de dados e análises exploratórias.
+* Suporte a diffs entre versões de notebook.
+
+### 🌍 **Terraform**
+
+* Extensão para rodar scripts de **Infraestrutura como Código (IaC)**.
+* Suporta automação de provisionamento de recursos Azure.
+* Comandos disponíveis via pipeline:
+
+  * `terraform init`
+  * `terraform plan`
+  * `terraform apply`
+
+---
+
+## 🏗️ 3) Organizações e Projetos
+
+### 🏢 **Organizações**
+
+* Unidade raiz do Azure DevOps.
+* Ex: `https://dev.azure.com/minhaempresa/`
+* Uma organização pode conter múltiplos projetos.
+* Controle de billing, políticas de segurança e extensões.
+
+### 📁 **Projetos**
+
+* Subunidade para organizar os artefatos de um time/produto.
+* Cada projeto tem:
+
+  * Repos próprios
+  * Pipelines
+  * Boards
+  * Test Plans
+  * Artifacts
+
+## 🚀 4) Configurando Azure DevOps para um Azure Data Factory chamado **“estudo”**
+
+### Etapas para configurar CI/CD para o ADF:
+
+### **1. Exportar o código JSON do Data Factory**
+
+* Acesse o portal do Azure > Data Factory > "Author".
+* Use o botão **"Publish"** para consolidar alterações.
+* Vá em **Manage > Source Control** e conecte com o Azure Repos.
+* O código (pipelines, datasets, linked services) será exportado em formato JSON para o repositório.
+
+### **2. Estrutura do Repositório**
+
+```bash
+/adf
+  ├── datasets/
+  ├── linkedServices/
+  ├── pipelines/
+  └── arm-template/
+        ├── template.json
+        └── parameters.json
+```
+
+### **3. Criar um pipeline YAML de deploy**
+
+Arquivo: `.azure-pipelines/deploy-adf.yml`
+
+```yaml
+trigger:
+  branches:
+    include:
+      - main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+variables:
+  azureSubscription: 'conexao-devops-azure'
+  resourceGroupName: 'rg-estudo'
+  dataFactoryName: 'adf-estudo'
+
+steps:
+- task: AzureResourceManagerTemplateDeployment@3
+  inputs:
+    deploymentScope: 'Resource Group'
+    azureResourceManagerConnection: '$(azureSubscription)'
+    subscriptionId: '<ID da Subscrição>'
+    action: 'Create Or Update Resource Group'
+    resourceGroupName: '$(resourceGroupName)'
+    location: 'Brazil South'
+    templateLocation: 'Linked artifact'
+    csmFile: 'adf/arm-template/template.json'
+    csmParametersFile: 'adf/arm-template/parameters.json'
+    overrideParameters: '-factoryName $(dataFactoryName)'
+    deploymentMode: 'Incremental'
+```
+
+### **4. Criar um Azure Pipeline com base no YAML**
+
+* Acesse o projeto no Azure DevOps > Pipelines.
+* Clique em **“New Pipeline”** > escolha o repositório > YAML > aponte para `deploy-adf.yml`.
+
+### **5. Adicionar políticas e segurança**
+
+* Vá em **Project Settings > Repositories > Branches > main**
+* Adicione:
+
+  * Políticas de Pull Request
+  * Build obrigatório antes do merge
+  * Revisores obrigatórios
+* Em **Permissions**, controle quem pode publicar e deletar pipelines.
